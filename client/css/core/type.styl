@@ -1,0 +1,294 @@
+//
+// Typography
+// --------------------------------------------------
+
+// Variables
+// ------------------------
+$text-muted-color =					$gray-light
+$abbr-border-color =				$gray-light
+$headings-small-color =				$gray-light
+
+
+
+
+// Form states and alerts
+// -------------------------
+$state-warning-text-color =			darken($color-warning, 50%)//#c09853
+$state-warning-background-color =	lighten($color-warning, 80%)//#fcf8e3
+$state-warning-border-color =		darken(spin($state-warning-background-color, -10), 7%)
+
+$state-danger-text-color =			darken($color-danger, 50%)//#b94a48
+$state-danger-background-color =	lighten($color-danger, 80%)//#f2dede
+$state-danger-border-color =		darken(spin($state-danger-background-color, -10), 3%)
+
+$state-success-text-color =			darken($color-success, 50%)//#468847
+$state-success-background-color =	lighten($color-success, 60%)//#dff0d8
+$state-success-border-color =		darken(spin($state-success-background-color, -10), 7%)
+
+$state-info-text-color =			#3a87ad
+$state-info-background-color =		#d9edf7
+$state-info-border-color =			darken(spin($state-info-background-color, -10), 7%)
+
+
+
+
+// Parrafos
+// -------------------------
+p
+	margin 0 0 ($line-height-computed / 2)
+	font-weight 300; //bolder|lighter|100|200|300|...|900
+	font-size $font-size
+	line-height $line-height
+
+	@media $media-screen-min-laptop
+		font-size ($font-size * 1.15)
+		line-height $line-height-lg
+
+
+
+
+	//Parrafo destacado
+	&.lead
+		margin-bottom $line-height-computed
+		font-size ($font-size * 1.15)
+		font-weight 200
+		line-height $line-height-lg
+
+		@media $media-screen-min-laptop
+			font-size ($font-size * 1.35)
+			line-height $line-height-xl
+
+
+
+// Emphasis & misc
+// -------------------------
+small
+	font-size 85%
+
+// Undo browser default styling
+cite
+	font-size 85%
+	font-style normal
+
+
+// Contextual emphasis
+.text-muted
+	color $text-muted-color
+.text-primary
+	color $color-primary
+.text-warning
+	color $state-warning-text-color
+.text-danger
+	color $state-danger-text-color
+.text-success
+	color $state-success-text-color
+.text-info
+	color $state-info-text-color
+.text-color
+	color $gray-darker
+
+// Alignment
+.text-left
+	text-align left
+.text-right
+	text-align right
+.text-center
+	text-align center
+
+
+
+
+
+// Headings
+// -------------------------
+h1,h2,h3,h4,h5,h6
+	font-family $headings-font-family
+	font-weight $headings-font-weight
+	line-height $headings-line-height
+	font-weight normal
+
+h1,h2
+	font-weight bold
+	text-transform uppercase
+	color $green
+
+	span
+		display block
+		font-size .5em
+		font-weight 100
+		color $green-lighter
+		letter-spacing 2px
+
+	[class^='icon-']
+		display inline-block
+
+
+
+
+h1,h2,h3
+	margin-top $line-height-computed
+	margin-bottom ($line-height-computed / 2)
+
+
+h4,h5,h6
+	margin-top ($line-height-computed / 2)
+	margin-bottom ($line-height-computed / 2)
+
+
+h1
+	font-size floor($font-size * 4.00) //64px
+	letter-spacing -4px
+
+
+h2
+	font-size floor($font-size * 2.50) //40px
+	letter-spacing -2px
+
+
+h3
+	font-size ceil($font-size * 1.75) //28px
+	letter-spacing -1px
+
+h4
+	font-size ceil($font-size * 1.25) //20px
+
+h5
+	font-size $font-size // 16px
+
+h6
+	font-size ceil($font-size * 0.75) //12px
+
+
+
+
+
+// Unordered and Ordered lists
+// -------------------------
+ul,
+ol
+	margin-top 0
+	margin-bottom ($line-height-computed / 2)
+
+	ul,
+	ol
+		margin-bottom 0
+
+
+
+
+// Abbreviations and acronyms
+// -------------------------
+abbr[title],
+// Added data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
+abbr[data-original-title]
+	cursor help
+	border-bottom 1px dotted $abbr-border-color
+
+
+
+// Blockquotes (Cita en bloque)
+// -------------------------
+blockquote
+	padding 15px 15px 15px 20px
+	margin 0 0 $line-height-computed
+	border-left 3px solid $green-lighter
+	background-color lighten($gray-lighter, 40%)
+	border-radius 3px 5px 5px 3px
+
+	p
+		font-size ($font-size * 0.7)
+		font-style italic
+		font-weight 300
+		line-height 1.4
+
+	p:last-child
+		margin-bottom 0
+
+	@media $media-screen-min-tablet
+		p
+			font-size ($font-size * 0.9)
+
+	@media $media-screen-min-laptop
+		p
+			font-size $font-size
+
+	@media $media-screen-min-desktop
+		p
+			font-size ($font-size * 1.2)
+
+
+	small,
+	cite
+		display block
+		line-height $line-height
+		color $gray
+		font-style italic
+
+		&:before
+			content '\2014 \00A0'// (\1014 = -) y (\00A0 = espacio)
+
+
+
+
+
+
+	// Float right with text-align: right
+	&.pull-right
+		padding 15px 20px 15px 15px
+		border-right 3px solid $green-lighter
+		border-left 0
+		border-radius 5px 3px 3px 5px
+
+
+		p,
+		small,
+		cite
+			text-align right
+
+		small,
+		cite
+			&:before
+				content ''
+
+			&:after
+				content '\00A0 \2014'// NBSP, EM DASH
+
+
+
+
+
+
+// Quotes
+// -------------------------
+q:before,
+q:after,
+blockquote:before,
+blockquote:after
+	content ""
+
+
+
+
+// Addresses
+// -------------------------
+address
+	display block
+	margin-bottom $line-height-computed
+	font-style normal
+	line-height $line-height
+
+	p
+		margin-bottom 0px
+		// line-height 1.4
+		text-align center
+
+	@media $media-screen-min-laptop
+		p
+			text-align left
+
+
+
+
+
+
+

@@ -1,0 +1,92 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "React",
+  "engines": {
+    "node": "8.1.1",
+    "npm": "5.0.3"
+  },
+  "jest": {
+    "verbose": true,
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "modulePaths": [
+      "<rootDir>"
+    ],
+    "moduleDirectories": [
+      "<rootDir>",
+      "node_modules"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js"
+  },
+  "scripts": {
+    "---------- TEST JEST & ENZYME --------------------------------------------------------": "",
+    "test": "jest --watch",
+    "---------- CLIENT DEVELOPMENT --------------------------------------------------------": "",
+    "client-dev:dll": "webpack -p --config ./webpack.dll.js",
+    "client-dev:server": "NODE_ENV=development webpack-dev-server --config webpack.client.js --env development",
+    "client:dev": "npm-run-all --parallel client-dev:*",
+    "--------------------------------------------------------------------------------------": "",
+    "---------- CLIENT PRODUCTION ---------------------------------------------------------": "",
+    "client-prod:dll": "webpack -p --config ./webpack.dll.js",
+    "client-prod:build": "NODE_ENV=production webpack -p --config webpack.client.js --env production",
+    "client:prod": "npm-run-all --parallel client-prod:*",
+    "---------- CLIENT START --------------------------------------------------------------": "",
+    "start": "npm run client:prod"
+  },
+  "keywords": [],
+  "author": "CesarCF",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.4.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.18",
+    "compression-webpack-plugin": "^1.1.11",
+    "css-loader": "^0.28.9",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.4.1",
+    "nib": "^1.1.2",
+    "npm-run-all": "^4.1.2",
+    "react-hot-loader": "^3.1.3",
+    "react-json-view": "^1.17.1",
+    "redux-logger": "^3.0.6",
+    "style-loader": "^0.20.2",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1",
+    "webpack-merge": "^4.1.1"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "classnames": "^2.2.5",
+    "formik": "^0.11.11",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
+    "normalizr": "^3.2.4",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "reselect": "^3.0.1",
+    "socket.io-client": "^2.1.1",
+    "yup": "^0.25.1"
+  }
+}

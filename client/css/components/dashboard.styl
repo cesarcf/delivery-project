@@ -1,0 +1,135 @@
+//////////////////////////////////////////
+//////DASHBOARD //////////////////////
+//////////////////////////////////////////
+
+.dashboard
+	display flex
+	justify-content center
+	position relative
+	width 100%
+	padding 65px 10px 30px 10px
+
+
+	.customers-container
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items center
+		max-width 700px
+		margin 10px 0px 0px
+		font-size 0.6em
+
+		.customer
+			width 100%
+			padding 10px
+			margin 0px 0px 20px 0px
+			border 1px solid green
+			border-radius 5px
+
+			.customer-orders
+
+				.order
+					padding 5px
+					margin 0px 0px 10px 0px
+					border 1px solid green
+					border-radius 5px
+					&:last-child
+						margin 0px
+
+					.order-data
+						font-weight bold
+						margin 0px 0px 5px 0px
+
+					.order-carrier
+						select
+							width 100%
+
+					.order-shipments
+						margin 5px 0px 0px
+
+						h6
+							margin 5px 0px 5px
+
+						.shipments
+							.shipment
+								padding 5px
+								margin 0px 0px 15px 0px
+								border 2px solid $yellow-dark
+								border-radius 5px
+								background-color $yellow-lighter
+								&:last-child
+									margin 0px
+
+								.shipment-route
+									margin 0px 0px 5px 0px
+									border 1px solid $yellow-dark
+									border-radius 5px
+									padding 3px
+
+								.shipment-timers
+									margin 0px 0px 5px 0px
+
+
+								.shipment-cargo
+									border 1px solid $yellow-dark
+									border-radius 5px
+									padding 3px
+
+									.cargo
+										//
+
+					.order-discount
+						height auto
+
+						div.discount-remove
+							display flex
+							justify-content center
+							align-items center
+							margin 7px 0px 10px 0px
+
+							span.code
+								margin-right 5px
+								font-weight 100
+								font-size 0.7em
+
+							button
+								width auto
+
+
+						//SI NO TIENE VOUCHER LA ORDER
+						form
+							position relative //para posicionar los errores de los campos
+							display flex
+							flex-direction column //MAIN AXIS
+							align-items flex-start
+							margin 25px 0px 10px 0px
+
+							div
+								position relative
+								width 40%
+								&[class='checkbox']
+									display flex
+									justify-content flex-start
+									align-items center
+
+									label
+										input
+											margin 0px
+										span
+											width 100px
+											margin-left 5px
+
+
+								input
+									text-align center
+									margin 0px 0px 5px 0px
+
+
+
+
+
+
+
+
+
+

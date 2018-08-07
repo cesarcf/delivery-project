@@ -1,0 +1,561 @@
+//
+// Forms
+// --------------------------------------------------
+
+//Variables:
+$input-height-medium =	($line-height-computed + ($padding-vertical * 2) + 2)
+$input-height-large =	(floor($font-size-lg * $line-height-lg) + ($padding-lg-vertical * 2) + 2)
+$input-height-small =	(floor($font-size-sm * $line-height-sm) + ($padding-sm-vertical * 2) + 2)
+
+
+//
+// --------------------------------------------------
+////////////////////////////////////////////////////////////////////////
+// Mixins de form //////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// --------------------------------------------------
+//
+form-control-validation(text-color = #555, border-color = #ccc, background-color = #f5f5f5)
+	.help-block,
+	.control-label
+		color text-color
+
+	.form-control
+		border-color border-color
+		box-shadow inset 0 1px 1px rgba(0,0,0,.075)
+
+		&:focus
+			border-color darken(border-color, 10%)
+			box-shadow inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten(border-color, 20%)
+
+	.input-group-addon
+		color text-color
+		border-color border-color
+		background-color background-color
+
+
+
+form-control-focus(color = $green)
+	color-rgba = rgba(red(color), green(color), blue(color), .5)
+
+	&:focus
+		border-color color
+		outline 0
+		box-shadow 0px 0px 1px rgba(0,0,0,.1) inset, 0px 0px 1px color-rgba
+
+
+
+input-size(input-height, padding-vertical, padding-horizontal, font-size, line-height, border-radius)
+	height input-height
+	padding padding-vertical padding-horizontal
+	font-size font-size
+	line-height line-height
+	border-radius border-radius
+
+	select&
+		height input-height
+		line-height input-height
+
+
+	textarea&
+		height auto
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Normalize non-controls
+//
+// Restyle and baseline non-control form elements.
+
+fieldset
+	padding 10px
+	margin 0
+	border 0
+	border-left 2px dashed $green
+	border-radius 2px
+	min-width 0
+
+legend
+	display block
+	width 100%
+	padding 0
+	margin-bottom $line-height-computed
+	font-size ($font-size * 1.5)
+	line-height inherit
+	color $gray-dark
+	border 0
+	border-bottom 1px solid #e5e5e5
+
+label
+	display inline-block
+	margin-bottom 3px
+	font-family $font-family-header
+	font-weight 200
+	user-select(none)
+
+	&.control-label
+		padding-right 10px
+
+		+ .checkbox
+			margin-top 0px
+
+
+	.form-horizontal &.control-label
+		+ .checkbox
+			margin-top 5px
+
+
+
+
+// Make range inputs behave like textual form controls
+input[type="range"]
+	display block
+	width 100%
+
+
+
+// Make multiple select elements height not fixed
+select[multiple],
+select[size]
+	height auto
+
+
+// Fix optgroup Firefox bug per https//github.com/twbs/bootstrap/issues/7611
+select optgroup
+	font-size inherit
+	font-style inherit
+	font-family inherit
+
+
+// Focus for select, file, radio, and checkbox
+input[type="file"]:focus
+	outline none
+
+
+
+
+// Fix for Chrome number input
+// Setting certain font-sizes causes the `I` bar to appear on hover of the bottom increment button.
+// See https://github.com/twbs/bootstrap/issues/8350 for more.
+input[type="number"]
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button
+		height auto
+
+input[type="submit"]
+	margin-top 15px
+
+
+
+
+// Adjust output element
+output
+	display block
+	padding-top ($padding-vertical + 1)
+	font-size $font-size
+	line-height $line-height
+	color $gray
+
+
+
+
+// Common form controls
+.form-control
+	display block
+	width 100%
+	height $input-height-medium // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+	padding $padding-vertical $padding-horizontal
+	font-size $font-size
+	line-height $line-height
+	color lighten(#000, 35%)
+	vertical-align middle
+	background-color #fff
+	background-image none // Reset unusual Firefox-on-Android default style see https//github.com/necolas/normalize.css/issues/214
+	border 1px solid $gray-light//#ccc
+	border-radius $border-radius-xs
+	box-shadow 0px 0px 2px rgba(0,0,0,.1) inset
+	transition border-color .9s ease-in-out, box-shadow .9s ease-in-out
+
+
+
+	// Placeholder text gets special styles because when browsers invalidate entire
+	// lines if it doesn't understand a selector/
+	&:-moz-placeholder,// Firefox 4-18
+	&::-moz-placeholder,// Firefox 19+
+	&:-ms-input-placeholder,// Internet Explorer 10+
+	&::-webkit-input-placeholder // Safari and Chrome
+		color $gray-lighter
+
+
+	// Mixin - Customize the `focus` state to imitate native WebKit styles.
+	form-control-focus()
+
+
+
+	// Disabled and read-only inputs
+	// Note HTML5 says that controls under a fieldset > legendfirst-child won't
+	// be disabled if the fieldset is disabled. Due to implementation difficulty,
+	// we don't honor that edge case we style them as disabled anyway.
+	&[disabled],
+	&[readonly],
+	fieldset[disabled] &
+		cursor not-allowed
+		background-color $gray-lighter
+		opacity 1 // iOS fix for unreadable disabled content
+
+
+	// Reset height for `textarea`s
+	textarea&
+		height auto
+		border-radius $border-radius-lg
+
+
+// Input de tipo Archivo (Selecciona un archivo del ordenador)
+.input-file
+	position relative
+	height $input-height-medium
+	width 320px
+
+	label
+		display block
+		position absolute
+		top 0px
+		left 0px
+		right 0px
+		height @height
+		line-height @height
+		background-color #fff
+		border 1px solid #d5d5d5
+		border-radius 3px
+
+		&:before
+			display inline-block
+			content attr(data-title)
+			position absolute
+			top 0
+			bottom 0
+			padding 0 8px
+			line-height 28px
+			text-align center
+			background-color lighten($green, 50%)
+			color #FFF
+			font-size 11px
+			font-weight normal
+			border 2px solid #FFF
+			border-radius 0 3px 3px 0
+
+	input
+		position absolute
+		top 0px
+		left 0px
+		width 100%
+		height @height
+		opacity 0
+		cursor pointer
+
+
+
+	span
+		position relative
+		display inline-block
+		height @height
+		max-width 73% // para un ancho de 320px
+		white-space nowrap
+		// overflow-y hidden
+		overflow hidden
+		font-weight normal
+		color #888
+		padding-left 45px
+		cursor pointer
+
+
+// Special styles for iOS date input
+//
+// In Mobile Safari, date inputs require a pixel line-height that matches the
+// given height of the input.
+input[type="date"]
+	line-height $input-height-medium
+
+
+// Form groups
+//
+// Designed to help with the organization and spacing of vertical forms. For
+// horizontal forms, use the predefined grid classes.
+
+.form-group
+	margin-bottom 10px
+
+	p
+		font-size 0.7em
+		font-weight normal
+
+	//Se pone en thead de la tabla que filtra resultados pej: class="form-group filter"
+	&.filter
+		margin-bottom 0px
+
+	&.filter-foot
+		display inline-block
+		vertical-align middle
+		width 165px
+		margin-right 10px
+
+
+
+// Checkboxes and radios
+// Indent the labels to position radios/checkboxes as hanging controls
+.checkbox,
+.checkbox-inline
+	display flex
+	justify-content center
+	align-items center
+
+	label
+		// border 1px solid red
+		display flex
+		justify-content flex-start
+		align-items center
+		cursor pointer
+		user-select(none)
+		padding 10px 0px
+
+		//Aplicar esta clase al 'Label' cuando este el input desactivado
+		&.disabled
+			cursor not-allowed
+			opacity 0.5
+			> span
+				cursor not-allowed
+				background-color $gray-lighter
+				opacity 0.7
+
+		span
+			font-size 0.9em
+
+
+.radio
+	@extends .checkbox
+
+	.container
+		label
+			span
+				border-radius 50%
+
+.radio-inline
+	@extends .checkbox
+	flex-direction row
+	justify-content flex-start
+
+	.container
+		// border 1px solid green
+		width auto
+		margin-bottom 0px
+		label
+			margin-right 20px
+
+
+
+.checkbox-table
+	label
+		margin-bottom 0px
+
+		span
+			margin-right 0px
+
+
+
+
+
+
+// Form control sizing
+input-sm()
+	input-size($input-height-small, $padding-sm-vertical, $padding-sm-horizontal, $font-size-sm, $line-height-sm, $border-radius-sm)
+
+.input-sm
+	input-sm()
+
+
+input-lg()
+	input-size($input-height-large, $padding-lg-vertical, $padding-lg-horizontal, $font-size-lg, $line-height-lg, $border-radius-lg)
+
+.input-lg
+	input-lg()
+
+
+// Form control feedback states
+//
+// Apply contextual and semantic states to individual form controls. (Text, border, background)
+
+// Warning
+.has-warning
+	form-control-validation($state-warning-text-color, $state-warning-border-color, $state-warning-background-color)
+
+// Error
+.has-error
+	form-control-validation($state-danger-text-color, $state-danger-border-color, $state-danger-background-color)
+
+// Success
+.has-success
+	form-control-validation($state-success-text-color, $state-success-border-color, $state-success-background-color)
+
+
+
+// Static form control text
+//
+// Apply class to a `p` element to make any string of text align with labels in
+// a horizontal form layout.
+
+.form-control-static
+	margin-bottom 0 // Remove default margin from `p`
+	padding-top ($padding-vertical + 1)
+
+
+
+// Help text
+//
+// Apply to any element you wish to create light text for placement immediately
+// below a form control. Use for general help, formatting, or instructional text.
+
+.help-block
+	position relative
+	top -5px
+	//Para los bloques de error de symfony. llevan un ul > li
+	ul
+		margin 0px
+		padding 0px
+		text-align left
+
+		li
+			display inline // account for any element using help-block
+			margin 0px
+			padding 3px 6px
+			font-size 10px
+			text-transform uppercase
+			border-radius 3px
+			color lighten($text-color, 25%) // lighten the text some for contrast
+			background-color lighten(red, 90%)
+			list-style-type none
+
+			// &:before
+			// 	@extends .icon-awesome-exclamation-triangle:before
+			// 	margin-right 3px
+			// 	top 0px
+
+
+
+
+// Inline forms
+//
+// Make forms appear inline(-block) by adding the `.form-inline` class. Inline
+// forms begin stacked on extra small (mobile) devices and then go inline when
+// viewports reach <768px.
+//
+// Requires wrapping inputs and labels with `.form-group` for proper display of
+// default HTML form controls and our custom form controls (e.g., input groups).
+//
+// Heads up! This is mixin-ed into `.navbar-form` in navbars.less.
+
+form-inline()
+	// Menos de 768px se combierte en un form normal, mas de eso esta inline
+	//@media $media-screen-min-laptop
+
+	// Menos de 998px se combierte en un form normal, mas de eso esta inline
+	@media screen and (min-width: 5000px)
+
+
+		// Inline-block all the things for "inline"
+		.form-group
+			display inline-block
+			margin-bottom 0
+			vertical-align middle
+
+			&:first-of-type
+				.control-label
+					padding-left 0px
+
+
+
+		// In navbar-form, allow folks to *not* use `.form-group`
+		.form-control
+			display inline-block
+			width auto // Prevent labels from stacking above inputs in `.form-group`
+			vertical-align middle
+
+
+		.control-label
+			margin-bottom 0
+			padding-right 5px
+			padding-left 15px
+			vertical-align middle
+
+
+		.radio,
+		.checkbox
+			display inline-block
+			margin-top 0
+			margin-bottom 0
+			margin-left 5px
+			padding-left 0
+			vertical-align middle
+			float none
+
+
+
+
+
+.form-inline
+	form-inline()
+
+
+
+// Horizontal forms
+//
+// Horizontal forms are built on grid classes and allow you to create forms with
+// labels on the left and inputs on the right.
+
+.form-horizontal
+
+	// Consistent vertical alignment of labels, radios, and checkboxes
+	.control-label,
+	.radio,
+	.checkbox,
+	.radio-inline,
+	.checkbox-inline
+		margin-top 0
+		margin-bottom 0
+		// padding-top ($padding-vertical + 1) // Default padding plus a border
+
+
+
+	.control-label
+		text-align right
+		min-width 115px
+
+
+	// Make form groups behave like rows
+	.form-group
+		clearfix()
+
+
+	.form-control
+		display inline-block
+		width auto // Prevent labels from stacking above inputs in `.form-group`
+		vertical-align middle
+
+	.input-file
+		display inline-block
+		vertical-align middle
+
+
+	// Only right align form labels here when the columns stop stacking
+	@media $media-screen-min-laptop
+		.control-label
+			text-align left
+

@@ -1,0 +1,107 @@
+//Redux-Form async-validating Fields
+div.async-validating
+	position relative
+	&:before
+		position absolute
+		@extend .icon-awesome-spinner-pulse:before
+		top 14px
+		right 10px
+
+// Errores de Formulario Redux-From Field
+div.field-error
+	z-index 10000
+	display flex
+	justify-content center
+
+	span.error
+		display flex
+		justify-content center
+		position absolute
+		top -67px
+		width auto
+		padding 3px 10px
+		text-align center
+		color $white
+		border-radius 2px
+		font-size 0.5em
+		background-color $red-lighter
+
+		&:before
+			content ''
+			position absolute
+			top 17px
+			width 0px
+			height 0px
+			border-color $red-lighter transparent transparent transparent//  $red-lighter $red-lighter
+			border-style solid
+			// border-width 0px 8px 8px 7px
+			border-width 8px 8px 8px 8px
+
+
+div.form-error
+	z-index 10000
+	display flex
+	justify-content center
+	align-items center
+	// position relative
+	span.error
+		display flex
+		justify-content center
+		align-items center
+		position absolute
+		top -47px
+		min-width 300px
+		width 100%
+		height 47px
+		padding 3px 13px 3px 13px
+		color $white
+		border-radius 2px
+		font-size 0.7em
+		background-color $red-lighter
+		cursor pointer
+		&:after
+			position relative
+			@extend .icon-awesome-times-circle:before
+			font-size 1.3em
+			top 0px
+			right -10px
+
+		&:before
+			position relative
+			@extend .icon-awesome-lock:before
+			font-size 1.3em
+			top 0px
+			right 10px
+
+// .error
+// 	width 100%
+// 	margin-top 30px
+// 	display flex
+// 	flex-wrap wrap
+// 	justify-content center
+// 	align-items center
+// 	@media $media-screen-min-laptop
+// 		flex-wrap nowrap
+// 		justify-content space-around
+
+// 	figure
+// 		display block
+// 		margin 0px
+// 		max-width 500px
+// 		img
+// 			width 100%
+// 			margin 0px
+
+// 	.error-text
+// 		width 100%
+// 		text-align center
+// 		h2
+// 			font-size 3em
+// 		h4
+// 			// border-bottom 1px dashed $green
+
+
+// 		@media $media-screen-min-laptop
+// 			text-align left
+// 			font-size 1.2em
+// 			width 500px

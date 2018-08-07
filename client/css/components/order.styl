@@ -1,0 +1,1011 @@
+.container-style
+	background-color #fff
+	border-radius 5px
+	box-shadow 0px 0px 1px 1px lighten($green-lighter, 50%)
+	padding 10px
+	margin 0px 10px 20px 10px
+
+
+div.checkout
+	// border 1px solid red
+	margin-top 65px
+	display flex
+	flex-direction column
+	align-items center
+	height auto
+	max-width 1000px
+	min-height 500px
+	margin-right auto
+	margin-left auto
+
+	@media $media-screen-min-laptop
+		flex-direction row-reverse
+		align-items flex-start
+
+
+	div.checkout-right
+		// border 1px solid green
+		width 100%
+		max-width 600px
+		@media $media-screen-min-laptop
+			width 350px
+
+			// @media $media-screen-min-laptop
+			flex-shrink 0
+			position sticky
+			top 65px
+
+
+		/////////////////////
+		//////////////
+		//SHOPPINGCART
+		div.shoppingCart
+			margin-top 20px
+			@extend .container-style
+
+			@media $media-screen-min-tablet
+				// margin 20px 20px 0px 20px
+
+
+			img.emptyCart
+				width 100%
+
+			//TITULO SHOPPINGCART
+			h5
+				text-align center
+				font-weight 100
+
+			//LISTA DE PRODUCTS
+			ul
+				display flex
+				flex-direction column //MAIN AXIS
+				align-items flex-start //CROSS-AXIS
+				padding 0px
+				margin 0px
+
+				li.product
+					display flex
+					flex-direction column //MAIN AXIS
+					align-items flex-start //CROSS-AXIS
+					width 100%
+					margin-bottom 5px
+					padding-bottom 5px
+					border-bottom 1px dotted $gray-light
+
+
+					&:last-child
+						margin-bottom 0px
+						border-bottom none
+
+
+					h5.name
+						font-weight 300
+						font-size 0.7em
+						margin 5px
+
+					div.detail
+						display flex
+						justify-content flex-end //MAIN AXIS
+						align-items center //CROSS-AXIS
+						width 100%
+
+						figure
+							margin 0px
+
+							img
+								max-height 50px
+
+						span.price
+							font-weight bold
+							font-size 1em
+							margin 0px 5px 0px auto
+
+						a,button
+							font-size 1.2em
+							margin 0px 2px
+							opacity .5
+							color $gray
+							transition all .5s linear
+							&:hover
+								opacity 1
+								color $gray
+
+							&:last-child
+								margin-right 5px
+
+						span.units
+							font-weight bold
+							margin 0px 3px
+
+
+
+		/////////////////////
+		//////////////
+		//VOUCHER
+		div.voucher
+
+			height auto
+			@extend .container-style
+
+			div.voucher-title
+				margin-top 10px
+				display flex
+				justify-content center
+				align-items flex-start
+
+				h5
+					margin 0px
+					font-weight 100
+
+			//SI TIENE VOUCHER LA ORDER
+			div.voucher-code
+				display flex
+				justify-content center
+				align-items center
+				margin 7px 0px 10px 0px
+
+				span.code
+					margin-right 5px
+					font-weight 100
+					font-size 0.7em
+
+				button
+					width auto
+
+
+			//SI NO TIENE VOUCHER LA ORDER
+			form
+				position relative //para posicionar los errores de los campos
+				display flex
+				flex-direction column //MAIN AXIS
+				align-items center //CROSS-AXIS
+				margin 25px 0px 10px 0px
+
+				div
+					position relative
+					width 100%
+
+					input
+						text-align center
+						width 100%
+						margin 0px 0px 5px 0px
+						// &.error
+						// 	border 1px solid red
+
+
+		button
+			width 100%
+
+
+		/////////////////////
+		//////////////
+		//ORDER-TOTAL
+ 		div.order-total
+			@extend .container-style
+			display flex
+			flex-direction column
+			hr
+				margin 5px 10px
+				border-top 1px solid $gray
+
+
+			div.subtotal, div.discounts, div.shipping, div.total
+				// border 1px solid red
+				display flex
+				justify-content space-between
+				align-items center
+				margin 0px 0px 5px 0px
+				padding 0px 10px 0px 10px
+
+				&:first-child
+					margin-top 10px
+				&:last-child
+					margin-bottom 10px
+
+				h5
+					font-weight 300
+					margin 0
+				span
+					font-family $font-family-header
+					font-weight 100
+
+			div.shipping
+				span
+					// font-weight normal
+
+			div.total
+				font-size 1.3em
+				span
+					font-weight normal
+
+
+
+
+
+	div.checkout-left
+		// border 1px solid green
+		width 100%
+		max-width 600px
+		height auto
+		@media $media-screen-min-laptop
+			max-width 100%
+
+		/////////////////////
+		//////////////
+		//ADDRESSESS
+		div.address
+
+			min-height 200px
+			@extend .container-style
+
+			@media $media-screen-min-laptop
+				width auto
+				margin-top 20px
+				// border 2px solid red
+			@media $media-screen-min-desktop
+				// border 2px solid green
+
+			div.address-title
+				margin 10px 0px 20px 0px
+				display flex
+				justify-content center
+				align-items flex-start
+
+				h5
+					margin 0px
+					font-weight 100
+					&:hover
+						cursor pointer
+
+				span[class^='icon-']
+					&:hover
+						cursor pointer
+
+			div.address-container
+				div.address-saved
+					display block
+					select
+						width 100%
+						margin-bottom 10px
+
+					&.hide
+						display none
+
+				div.address-form
+					form
+						position relative //para posicionar los errores de los campos
+						display flex
+						flex-direction column //MAIN AXIS
+						align-items center //CROSS-AXIS
+						width 100%
+
+						div
+							position relative
+							width 100%
+
+							select
+								margin-bottom 5px
+								text-align-last center
+								&.error
+									// border 1px solid red
+
+							input
+								text-align center
+								width 100%
+								margin 0px 0px 5px 0px
+								&.error
+									// border 1px solid red
+
+
+						button
+							width 100%
+
+
+		div.payment
+			@extend .container-style
+			min-height 180px
+
+			.StripeElement
+				background-color white
+				height 65px
+				padding 10px
+				margin 20px 20px 0px
+				border-radius 4px
+				border 1px solid transparent
+				box-shadow 0 2px 3px 2px #e6ebf1
+				-webkit-transition box-shadow 150ms ease
+				transition box-shadow 150ms ease
+				// border 1px solid red
+
+
+			.StripeElement--focus
+				box-shadow 0 2px 3px 2px $gray-light
+
+
+			.StripeElement--invalid
+				border-color $red-light
+
+
+			.StripeElement--webkit-autofill
+				background-color #fefde5 !important
+				color $text-color
+
+			button
+				width calc(100% - 30px)
+				margin 20px 15px 20px
+				font-weight 600
+
+
+// //////////////////////////////////////////
+// ////////////shopping-order - 704 lineas! /////////////////
+// //////////////////////////////////////////
+// .order
+// 	padding 20px 0px
+// 	background-color #fff
+// 	border-radius 5px
+// 	margin 30px 0px 160px
+// 	box-shadow 0px 0px 1px 1px lighten($green-lighter, 50%)
+
+// 	@media $media-screen-min-tablet
+// 		padding 20px
+// 	@media $media-screen-min-laptop
+// 		margin 50px auto 160px
+// 		max-width 800px
+
+
+// 	//order-Header
+// 	h2
+// 		font-size 2.3em
+// 		margin-top 0px
+// 		padding 0px 10px 10px
+// 		letter-spacing -1px
+// 		&.center
+// 			text-align center
+
+// 	p
+// 		margin-bottom 30px
+
+// 	// Los enlaces de navegacion del proceso de compra
+// 	.order-navigator
+// 		display flex
+// 		justify-content space-between
+// 		align-items flex-start
+// 		margin 0px auto
+// 		padding 20px
+// 		max-width 360px
+// 		@media $media-screen-min-tablet
+// 			max-width 400px
+// 			padding 40px 20px
+
+// 		a
+// 			display flex
+// 			flex-direction column
+// 			justify-content flex-start
+// 			align-items center
+// 			font-size 1.3em
+// 			color $green
+// 			@media $media-screen-min-tablet
+// 				font-size 1.6em
+// 			@media $media-screen-min-laptop
+// 				font-size 2em
+
+// 		span
+// 			color $green
+// 			&.text:before
+// 				@extend .icon-awesome-angle-right:before
+// 				position relative
+// 				top 5px
+// 				font-size 1.3em
+// 				font-weight bold
+// 				@media $media-screen-min-tablet
+// 					font-size 1.8em
+// 				@media $media-screen-min-laptop
+// 					font-size 2em
+
+// 			&[class^='number']
+// 				position relative
+// 				font-size 0.5em
+// 				top -5px
+// 				@media $media-screen-min-tablet
+// 					font-size 0.4em
+
+// 			&.active
+// 				opacity 0.3
+
+// 	//Productos en el order de la Compra
+// 	//(Cada linea de productos en la cesta)
+// 	.order-item
+// 		display flex
+// 		flex-direction column
+// 		justify-content flex-start
+// 		align-items center
+// 		padding 10px
+// 		border-bottom 1px dotted $gray-light
+
+// 		&.first
+// 			border-top 1px dotted $gray-light
+
+// 		&.void,
+// 		&.thanks
+// 			text-align center
+
+// 		&.void
+// 			a
+// 				color $green
+
+
+// 		.order-item-description
+// 			width 100%
+// 			margin 0px
+// 			//evita que se corte el texto
+// 			white-space nowrap
+// 			overflow hidden
+
+// 			a
+// 				display flex
+// 				flex-direction column
+// 				justify-content flex-start
+// 				align-items flex-start
+// 				color $text-color
+
+// 				h4
+// 					font-family $font-family-text
+// 					font-size .9em
+// 					letter-spacing -1px
+// 					margin 0px
+// 					@media $media-screen-min-laptop
+// 						font-size 1em
+// 						letter-spacing 0px
+
+// 				span
+// 					font-size 0.7em
+// 					text-transform none
+// 					font-style italic
+// 					font-weight lighter
+
+
+// 		.order-item-price
+// 			display flex
+// 			justify-content space-between
+// 			align-items center
+// 			width 100%
+// 			height auto
+
+// 			figure
+// 				display none
+// 				margin 0px
+// 				@media $media-screen-min-tablet
+// 					display block
+// 				@media $media-screen-min-laptop
+// 					margin-right 10px
+
+// 				img
+// 					max-width 75px
+
+// 			.units
+// 				display flex
+// 				justify-content flex-start
+// 				align-items center
+
+// 				.items
+// 					padding 0px 5px
+// 					font-weight bold
+
+// 				.minus
+// 					display none
+// 					font-size 1.5em
+// 					color $gray-light
+// 					cursor pointer
+
+// 					//Animacion
+// 					&.add
+// 						animation-name 'addItem'
+// 						animation-duration 2.5s
+// 						animation-delay 0s
+// 						animation-fill-mode both
+// 						animation-timing-function ease-in
+
+// 					a
+// 						opacity .5
+// 						color $gray
+// 						transition all .5s linear
+// 						&:hover
+// 							opacity 1
+// 							color $gray
+
+// 				.plus
+// 					font-size 1.5em
+// 					color $gray-light
+// 					cursor pointer
+
+// 					//Animacion
+// 					&.add
+// 						animation-name 'addItem'
+// 						animation-duration 2.5s
+// 						animation-delay 0s
+// 						animation-fill-mode both
+// 						animation-timing-function ease-in
+// 					a
+// 						opacity .5
+// 						color $gray
+// 						transition all .5s linear
+// 						&:hover
+// 							opacity 1
+// 							color $gray
+
+
+// 			.price
+// 				position relative
+// 				font-size 30px
+// 				font-weight bold
+// 				padding-right 15px
+// 				margin-left auto //Marca el "space-between"
+
+
+// 				.points
+// 					position absolute
+// 					top 36px
+// 					right 15px
+// 					font-size 8px
+// 					&:after
+// 						content " puntos"
+
+// 			.trash
+// 				font-size 1.5em
+// 				// padding 10px
+// 				cursor pointer
+// 				a
+// 					opacity .5
+// 					color $gray
+// 					transition all .5s linear
+// 					&:hover
+// 						opacity 1
+// 						color $gray
+
+
+
+// 	.trash-order
+// 		margin 10px auto
+
+// 	//Totales del Pedido
+// 	.order-totales
+// 		width 100%
+// 		margin-top 60px
+// 		overflow hidden //Para que no se salga del contenedor el float de 'order-totales-subtotal'
+
+
+// 		.order-totales-notas
+// 			display none
+
+// 		.order-totales-subtotal
+// 			width 100%
+// 			padding 0px 10px
+// 			@media $media-screen-min-laptop
+// 				margin-right 37px
+// 				width 400px
+// 				float right
+
+
+// 			h5
+// 				display flex
+// 				justify-content space-between
+// 				align-items center
+// 				margin 2.5px
+// 				font-family $font-family-text
+// 				font-weight 400
+
+// 				.text
+// 					margin-right auto
+// 					letter-spacing -1px
+
+// 				.price
+// 					font-size 30px
+
+// 				//Totales
+// 				&:nth-last-of-type(2)
+// 					margin-top 10px
+// 					.text,
+// 					.price
+// 						font-size 1.8em
+// 						@media $media-screen-min-tablet
+// 							font-size 2em
+
+// 				&.last
+// 					.points
+// 						border-top 1px dashed $green
+// 						font-size 14px
+// 						padding 5px 10px
+// 						margin-left auto //ajusta el space-between
+
+// 			.voucher
+// 				display flex
+// 				justify-content space-between
+// 				align-items center
+
+// 				input
+// 					border-radius 10px
+// 					width 210px
+// 					margin 5px auto 5px 0px //Margin-Right ajusta el space-between
+
+// 				span
+// 					padding 0px 2px
+
+// 				a
+// 					font-size 1.5em
+// 					cursor pointer
+// 					color $green
+// 					opacity 0.5
+// 					transition all 0.5s ease-in-out
+
+// 					&:hover
+// 						opacity 1.0
+
+// 	//Bloque de Links Inferior para pasar de un paso al otro
+// 	//en el proceso de compra
+// 	.order-links
+// 		display flex
+// 		justify-content space-around
+// 		align-items center
+// 		width 100%
+
+// 		a
+// 			margin-top 40px
+// 			font-size 1em
+// 			//color $green
+// 			text-decoration none
+
+// 			&.btn-link
+// 				font-weight 600
+
+
+
+// 			&.highlight
+// 				position relative
+// 				//animation spinStart 10s infinite linear
+// 				animation-name 'highlight'
+// 				animation-duration 1.5s
+// 				animation-iteration-count infinite
+// 				animation-timing-function linear
+
+
+
+
+// 	//Direccion
+// 	.address-container
+// 		padding 0px 10px
+// 		address
+// 			a
+// 				color $text-color
+// 				font-weight bold
+
+// 	//Paso del proceso de compra (Metodo de Envio)
+// 	.order-shipment
+// 		padding 0px 10px
+
+// 		.order-shipment-comment
+// 			margin-top 10px
+
+// 			textarea
+// 				height 160px
+// 			a
+// 				color $text-color
+// 				text-decoration none
+// 				span
+// 					margin-right 5px
+
+// 	//Paso del proceso de compra (Metodo de Pago)
+// 	.order-payment
+// 		position relative
+// 		display flex
+// 		flex-wrap wrap
+// 		justify-content center
+// 		align-items center
+
+// 		a
+// 			height 130px
+// 			width 170px
+// 			margin 10px
+// 			margin-bottom 20px
+
+// 			&:hover
+// 				text-decoration none
+
+// 			//<div>
+// 			.order-payment-method
+// 				display flex
+// 				flex-direction column
+// 				justify-content flex-start
+// 				align-items center
+// 				border-radius 5px
+// 				overflow hidden
+// 				border 1px solid $gray
+
+// 				&:hover
+// 					box-shadow 0px 0px 2px 1px $green
+
+// 				&.first
+// 					margin-left 0px
+
+// 				h4
+// 					margin 15.4px
+// 					font-weight 900
+// 					color $text-color
+// 					text-align center
+// 					text-decoration none
+
+// 				span
+// 					color $green
+// 					&.icon-awesome-spinner:before
+// 						top -1px
+
+// 				//la caja que contiene a las imagenes de las tarjetas
+// 				div
+// 					display flex
+// 					justify-content center
+// 					align-items flex-start
+// 					height 31px
+
+// 					span
+// 						color $text-color
+// 						margin-right 3px
+
+// 	.alert
+// 		p
+// 			margin-bottom 0px
+// 	//Mensaje de Error cuando no completa cada parte del proceso de compra
+// 	.alert[data-order-error]
+// 		display none
+// 		margin 15px 0px 0px 0px
+// 		p
+// 			margin 0px
+
+
+
+
+// // StripeMethod TPV
+// .stripe-payment-container
+// 	width 100%
+// 	overflow hidden
+
+// 	h4
+// 		text-align center
+// 		text-transform uppercase
+// 		letter-spacing 2px
+// 		font-weight bold
+
+// 	p
+// 		text-align center
+
+// 	.stripe-payment
+// 		width 295px
+// 		margin 0 auto
+
+
+// 		.form-horizontal
+// 			font-size 0.8em
+
+// 			span
+// 				&.payment-errors
+// 					display block
+// 					width 100%
+// 					margin-bottom 10px
+// 					text-align center
+// 					color $brand-color-warning
+
+// 			.form-group
+
+// 				.control-label
+// 					text-align left
+// 					min-width 90px
+
+// 				&.creditCart
+// 					margin-top -13px
+
+// 					span
+// 						margin-right 2px
+
+// 				// La imagen del CVC
+// 				img.cvc
+// 					width auto
+// 					height 50px
+// 					border-radius 10px
+// 					margin-left 5px
+
+// 				input
+// 					font-size 0.9em
+
+
+// 				input[data-order='price']
+// 					max-width 200px
+// 				input[data-order='user']
+// 					max-width 200px
+// 				input[data-stripe='number']
+// 					max-width 200px
+// 				input[data-stripe='cvc']
+// 					max-width 65px
+
+// 				select
+// 					+ select
+// 						margin-left 5px
+
+// @media $media-screen-min-tablet
+// 	.stripe-payment-container
+// 		.stripe-payment
+// 			width 345px
+// 			.form-horizontal
+// 				font-size 1em
+// 				.form-group
+// 					.control-label
+// 						min-width 115px
+// 						input
+// 							font-size 1em
+
+// 					input[data-order='price']
+// 						max-width 225px
+// 					input[data-order='user']
+// 						max-width 225px
+// 					input[data-stripe='number']
+// 						max-width 225px
+
+
+// // StripeMethod TPV
+// .paymill-payment-container
+// 	width 100%
+// 	overflow hidden
+
+// 	h4
+// 		text-align center
+// 		text-transform uppercase
+// 		letter-spacing 2px
+// 		font-weight bold
+
+// 	p
+// 		text-align center
+
+// 	.paymill-payment
+// 		width 295px
+// 		margin 0 auto
+
+// 		#paymill_payment_error
+// 			margin 0px
+// 			padding 0px
+// 			text-align left
+
+// 			li
+// 				display block // account for any element using help-block
+// 				margin 5px 0px
+// 				padding 0px
+// 				font-size $font-size-xs
+// 				font-style italic
+// 				color lighten($text-color, 25%) // lighten the text some for contrast
+// 				background-color lighten(red, 90%)
+// 				list-style-type none
+// 				text-align center
+
+
+// 		.form-horizontal
+// 			font-size 0.8em
+
+// 			span
+// 				&.payment-errors
+// 					display block
+// 					width 100%
+// 					margin-bottom 10px
+// 					text-align center
+// 					color $brand-color-warning
+
+// 			.form-group
+
+// 				.control-label
+// 					text-align left
+// 					min-width 90px
+
+// 				&.creditCart
+// 					margin-top -13px
+
+// 					span
+// 						margin-right 2px
+
+// 				// La imagen del CVC
+// 				img.cvc
+// 					width auto
+// 					height 50px
+// 					border-radius 10px
+// 					margin-left 5px
+
+// 				input
+// 					font-size 0.9em
+
+// 				input[data-paymill-card]
+// 					padding 8px 5px
+// 					width 48px
+
+// 				input[data-paymill-user]
+// 					max-width 200px
+// 				input[data-paymill-cvc]
+// 					max-width 65px
+
+
+// 				input[data-order='price']
+// 					max-width 200px
+// 				input[data-order='user']
+// 					max-width 200px
+// 				input[data-paymill='number']
+// 					max-width 200px
+
+
+// 				select
+// 					+ select
+// 						margin-left 5px
+
+// @media $media-screen-min-tablet
+// 	.paymill-payment-container
+// 		.paymill-payment
+// 			width 345px
+// 			.form-horizontal
+// 				font-size 1em
+// 				.form-group
+// 					.control-label
+// 						min-width 115px
+// 						input
+// 							font-size 1em
+
+// 					input[data-paymill-card]
+// 						width 56px
+// 					input[data-paymill-user]
+// 						max-width 225px
+
+// 					input[data-order='price']
+// 						max-width 225px
+// 					input[data-order='user']
+// 						max-width 225px
+// 					input[data-paymill='number']
+// 						max-width 225px
+
+
+// @keyframes highlight
+// 	0%
+// 		opacity 1.0
+
+// 	50%
+// 		opacity 0.3
+
+
+
+
+// // Aminacion de las unidades de la Order
+// //al añadir o quitar un nuevo items
+// @keyframes addItem
+// 	0%
+// 		//left 10%
+// 		//opacity 0
+// 		transform scale(1.7,1.7)
+
+// 	3%
+// 		//left -10%
+// 		transform scale(0.8,0.8)
+// 		//opacity 1
+
+// 	6%
+// 		//left 10%
+// 		transform scale(1.3,1.3)
+// 		//opacity 0
+
+// 	9%
+// 		//left -10%
+// 		transform scale(0.9,0.9)
+// 		//opacity 1
+
+// 	12%
+// 		//left 10%
+// 		transform scale(1.2,1.2)
+// 		//opacity 0
+
+// 	15%
+// 		//left 0%
+// 		transform scale(1,1)
+// 		//opacity 1
+
+// 	100%
+// 		opacity 1
+

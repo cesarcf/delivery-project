@@ -1,0 +1,149 @@
+//
+// --------------------------------------------------
+////////////////////////////////////////////////////////////////////////
+// Mixins //////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// --------------------------------------------------
+//
+
+// - background-size - Para evitar los problemas en Safari
+// --------------------------------------------------
+background-size()
+	background-size: arguments
+	-webkit-background-size: arguments
+	-moz-background-size: arguments
+	-ms-background-size: arguments
+	-o-background-size: arguments
+
+
+
+// --------------------------------------------------
+////////////////////////////////////////////////////////////////////////
+// FLEX MIXINS //////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// --------------------------------------------------
+
+
+display(type)
+	if type == flex
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+	else if type == inline-flex
+		display: -webkit-inline-flex
+		display: -ms-inline-flexbox
+		display: inline-flex
+	else
+		display: arguments
+
+
+
+
+
+// --------------------------------------------------
+////////////////////////////////////////////////////////////////////////
+// FILTER MIXINS //////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// --------------------------------------------------
+
+// - Filters
+// --------------------------------------------------
+filter_grayscale($porcentaje)
+	filter s("grayscale(%s)", $porcentaje)
+	-webkit-filter s("grayscale(%s)", $porcentaje)
+	-moz-filter s("grayscale(%s)", $porcentaje)
+	-ms-filter s("grayscale(%s)", $porcentaje)
+	-o-filter s("grayscale(%s)", $porcentaje)
+
+filter_sepia($porcentaje)
+	filter s("sepia(%s)", $porcentaje)
+	-webkit-filter s("sepia(%s)", $porcentaje)
+	-moz-filter s("sepia(%s)", $porcentaje)
+	-ms-filter s("sepia(%s)", $porcentaje)
+	-o-filter s("sepia(%s)", $porcentaje)
+
+
+filter_saturate($porcentaje)
+	filter s("saturate(%s)", $porcentaje)
+	-webkit-filter s("saturate(%s)", $porcentaje)
+	-moz-filter s("saturate(%s)", $porcentaje)
+	-ms-filter s("saturate(%s)", $porcentaje)
+	-o-filter s("saturate(%s)", $porcentaje)
+
+
+filter_hue-rotate($radius)
+	filter s("hue-rotate(%s)", $radius)
+	-webkit-filter s("hue-rotate(%s)", $radius)
+	-moz-filter s("hue-rotate(%s)", $radius)
+	-ms-filter s("hue-rotate(%s)", $radius)
+	-o-filter s("hue-rotate(%s)", $radius)
+
+
+filter_invert($porcentaje)
+	filter s("invert(%s)", $porcentaje)
+	-webkit-filter s("invert(%s)", $porcentaje)
+	-moz-filter s("invert(%s)", $porcentaje)
+	-ms-filter s("invert(%s)", $porcentaje)
+	-o-filter s("invert(%s)", $porcentaje)
+
+//Filter Opacity no necesario -> Soportado en 'Nib'
+
+filter_brightness($porcentaje)
+	filter s("brightness(%s)", $porcentaje)
+	-webkit-filter s("brightness(%s)", $porcentaje)
+	-moz-filter s("brightness(%s)", $porcentaje)
+	-ms-filter s("brightness(%s)", $porcentaje)
+	-o-filter s("brightness(%s)", $porcentaje)
+
+
+filter_contrast($porcentaje)
+	filter s("contrast(%s)", $porcentaje)
+	-webkit-filter s("contrast(%s)", $porcentaje)
+	-moz-filter s("contrast(%s)", $porcentaje)
+	-ms-filter s("contrast(%s)", $porcentaje)
+	-o-filter s("contrast(%s)", $porcentaje)
+
+filter_blur($pixeles)
+	filter s("blur(%s)", $pixeles)
+	-webkit-filter s("blur(%s)", $pixeles)
+	-moz-filter s("blur(%s)", $pixeles)
+	-ms-filter s("blur(%s)", $pixeles)
+	-o-filter s("blur(%s)", $pixeles)
+
+
+filter_drop-shadow($parametros)
+	filter s("drop-shadow(%s)", $parametros)
+	-webkit-filter s("drop-shadow(%s)", $parametros)
+	-moz-filter s("drop-shadow(%s)", $parametros)
+	-ms-filter s("drop-shadow(%s)", $parametros)
+	-o-filter s("drop-shadow(%s)", $parametros)
+
+
+
+// CSS3 PROPERTIES
+// --------------------------------------------------
+
+// Single side border-radius
+border-top-radius(radius)
+	border-top-right-radius radius
+	border-top-left-radius radius
+border-right-radius(radius)
+	border-bottom-right-radius radius
+	border-top-right-radius radius
+border-bottom-radius(radius)
+	border-bottom-right-radius radius
+	border-bottom-left-radius radius
+border-left-radius(radius)
+	border-bottom-left-radius radius
+	border-top-left-radius radius
+
+
+
+
+
+
+
+
+
+
+

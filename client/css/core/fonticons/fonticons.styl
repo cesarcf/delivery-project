@@ -1,0 +1,105 @@
+// Iconography
+// -------------------------
+
+$font-icon-path = "core/fonticons/"
+@import "awesome"
+
+.icon-spin
+	display inline-block
+	animation spin 2s infinite linear
+
+.icon-pulse
+	display inline-block
+	animation: spin 1s infinite steps(8)
+
+@keyframes spin
+	0%
+		transform rotate(0deg)
+	100%
+		transform rotate(359deg)
+
+
+.icon-parpadeo
+	display inline-block
+	animation parpadeo 1s infinite linear
+
+@keyframes parpadeo
+	0%
+		opacity 1
+
+	50%
+		opacity 0.3
+
+	100%
+		opacity 1
+
+.animation-banner
+	display inline-block
+	animation banner-opacity 3s infinite linear
+
+@keyframes banner-opacity
+	0%
+		opacity 1
+
+	50%
+		opacity .3
+
+
+
+
+
+.rotate-45
+	transform rotate(45deg)
+
+.rotate-90
+	transform rotate(90deg)
+
+.rotate-180
+	display inline-block
+	transform rotate(180deg)
+
+.rotate-270
+	display inline-block
+	transform rotate(270deg)
+
+.rotateY-180
+	display inline-block
+	transform rotateY(180deg)
+
+
+.rotateX-180
+	display inline-block
+	transform rotateX(180deg)
+
+
+.icon-stack
+	position relative
+	display inline-block
+	width 2em
+	height 2em
+	line-height 2em
+	vertical-align middle
+
+	.icon-stack-1x,
+	.icon-stack-2x
+		position absolute
+		left 0
+		width 100%
+		text-align center
+
+	.icon-stack-1x
+		line-height inherit
+
+	.icon-stack-2x
+		font-size @line-height
+
+
+
+
+
+
+
+
+
+
+

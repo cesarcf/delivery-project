@@ -1,0 +1,478 @@
+//
+// Header Frontend
+// --------------------------------------------------
+div.header
+	// border 1px solid green
+	position fixed
+	top 0px
+	display flex
+	flex-wrap wrap
+	justify-content space-between //MAIN AXIS
+	align-items flex-start //CROSS-AXIS
+	width 100%
+	height 65px
+	// padding 7px 0px 0px 0px
+	font-family $font-family-header
+	border-bottom 1px solid $green-darker
+	background-color #fff//lighten($green-lighter, 90%)//rgba($green-lighter, .1)
+	z-index 10000000 //Capas + por encima de capas -
+	transition all 0.3s ease-in-out
+
+	&.show
+		height 165px
+
+	div.logo
+		display none
+		margin 5px 0px 0px 0px
+		justify-content center
+		align-items center
+		@media $media-screen-min-tablet
+			display flex
+			margin-top 0px
+		a
+			img
+				height 54px
+
+				@media $media-screen-min-tablet
+					height 64px
+
+
+
+	//MI CUENTA
+	div.account
+		position static
+		display flex
+		flex-direction column //MAIN AXIS
+		justify-content center //MAIN AXIS
+		align-items flex-end //CROSS-AXIS
+		margin 0px 10px 0px auto //con "auto" el div se desplace a la izq totalmente.
+		width 200px
+		height 64px
+		//para ocultar lo que se desvorde:
+		white-space nowrap
+		overflow hidden
+
+		p
+			font-size 0.8em
+			margin 0px 0px -5px 0px
+
+		a
+			font-size 0.8em
+			&.open
+				&:before
+					@extend .icon-awesome-folder-open-o:before
+					left -3px
+
+			&.close
+				&:before
+					@extend .icon-awesome-folder-o:before
+					left -3px
+
+		//Se muestro y oculta a traves del State del componente
+		ul.nav-links
+			position absolute
+			display flex
+			flex-direction column //MAIN AXIS
+			align-items stretch //CROSS-AXIS
+			width auto
+			height auto
+			top 60px
+			right 10px
+
+			margin 0px
+			padding 0px
+			list-style-type none
+			border-radius 5px
+			padding 10px 5px 5px 5px
+			background-color #fff
+			box-shadow 0px 0px 10px 1px $gray-light//$white
+			z-index 101
+
+			li
+				display flex
+				flex-direction column //MAIN AXIS
+				justify-content center //MAIN AXIS
+				align-items flex-end //CROSS-AXIS
+				padding 0px 5px 0px 0px
+				margin 0px 0px 10px 0px
+				p
+					font-size 0.7em
+					margin 0px 0px -5px 0px
+
+					span
+						margin 0px 5px 0px 0px
+
+	//CARRITO
+	div.order
+		position static
+		display flex
+		justify-content center //MAIN AXIS
+		align-items center //CROSS-AXIS
+		width 50px
+		height 64px
+		margin 0px 10px 0px 0px
+
+		a
+			div
+				display flex
+				justify-content center
+				align-items center
+				width 50px
+				height 50px
+				border-radius 50%
+				background-color $green
+
+				span
+					color $white
+
+			div.units
+				// flex-shrink 0
+				position absolute
+				top 8px
+				right 6px
+				border-radius 50%
+				text-align center
+				width 25px
+				height @width
+				line-height @height
+				background-color $green-darker
+				font-size 0.7em
+				color $white
+
+
+
+
+// .header
+// 	position fixed
+// 	top 0px
+// 	left 0px
+// 	display flex
+// 	justify-content space-between
+// 	align-items center
+// 	font-family $font-family-header
+// 	width 100%
+// 	height 70px
+// 	background-color #fff
+// 	opacity(0.8)
+// 	z-index 1000
+// 	transition all 0.5s ease-in-out
+// 	border-bottom 1px solid $green-darker
+// 	background-color lighten($green-lighter, 90%)//rgba($green-lighter, .1)
+// 	//#f7fbf4
+// 	&:hover
+// 		opacity(1)
+
+// 	@media $media-screen-min-laptop
+// 		padding 0px 10px
+
+
+
+// 	//Menu Izq
+// 	.header-nav
+// 		width @height - 20%
+// 		height @height - 20%
+// 		margin -22px 0px 0px 10px
+
+// 		a
+// 			// display inline-block
+
+// 			span
+// 				position relative
+// 				font-size 2em
+// 				color $green
+
+// 				&:after
+// 					//@extend .icon-awesome-caret-down:before
+// 					content "menú" //"string" | url() | attr()
+// 					position absolute
+// 					font-size 0.35em
+// 					font-weight 100
+// 					letter-spacing 4px
+// 					top 48px
+// 					left 1px
+// 					z-index 1
+
+
+// 			&.animation-login
+// 				position relative
+// 				animation-name 'animationLogin'
+// 				animation-iteration-count infinite
+// 				animation-duration 2.5s
+// 				animation-delay 0s
+// 				animation-fill-mode both
+// 				animation-timing-function ease-in
+
+// 	.toggle-logo-user
+// 		//Datos del Distribuidor
+// 		display none
+
+// 		@media $media-screen-min-tablet
+// 			display inline
+// 			width 240px
+
+// 		.header-user-session
+// 			display none
+// 			position relative
+// 			width 120px
+// 			top -2px
+
+// 			@media $media-screen-min-tablet
+// 				display none
+// 				width 200px
+// 			@media $media-screen-min-laptop
+// 				width 250px
+
+// 			p
+// 				display block
+// 				font-size 0.7em
+// 				text-transform uppercase
+// 				letter-spacing 1px
+// 				margin-bottom -2px
+
+// 				&:nth-child(2)
+// 					// font-style italic
+// 					text-transform none
+// 					letter-spacing 1px
+// 					font-size 0.5em
+
+// 				//Para el email lo ponemos en minusculas
+// 				&.email
+// 					text-transform lowercase
+
+// 		//Logo de Herbalife
+// 		.header-logo-herbalife
+// 			display none
+// 			position relative
+
+
+
+// 			@media $media-screen-min-tablet
+// 				display flex
+// 				justify-content flex-start
+// 				align-items center
+// 				height auto
+// 				width auto
+// 				position relative
+// 				top -5px
+
+// 				//img
+// 				img
+// 					width 180px
+// 				.header-logo-name
+// 					position absolute
+// 					top 34px
+// 					left 0px
+// 					font-size 0.5em
+// 					font-weight 100
+
+// 					@media $media-screen-min-laptop
+// 						width 250px
+// 					@media $media-screen-min-desktop
+// 						width 300px
+
+
+
+// 		p
+// 			display block
+// 			font-size 0.7em
+// 			text-transform uppercase
+// 			letter-spacing 1px
+// 			margin-bottom -2px
+
+// 			&:nth-child(2)
+// 				// font-style italic
+// 				text-transform none
+// 				letter-spacing 1px
+// 				font-size 0.5em
+
+// 			//Para el email lo ponemos en minusculas
+// 			&.email
+// 				text-transform lowercase
+
+// 	//Mi Cuenta
+// 	.header-user
+// 		width 170px
+// 		margin-left auto
+// 		height @height - 20%
+// 		text-align right
+// 		text-transform uppercase
+
+// 		.header-user-name
+// 			white-space nowrap
+// 			overflow-y hidden
+
+// 			p
+// 				position relative
+// 				top 8px
+// 				height @height - 50%
+// 				margin-bottom 2px
+// 				font-size 0.7em
+// 				letter-spacing 1px
+
+// 		.header-user-link
+// 			position relative
+// 			height @height - 50%
+
+// 			a
+// 				position absolute
+// 				top -4px
+// 				right 0px
+// 				font-size 0.8em
+// 				color $green
+
+
+
+
+// 		// POPUP DEL USER
+// 		.header-user-popup
+// 			display none
+// 			position relative
+// 			width 200px
+// 			top 0px
+// 			left 35px
+// 			height auto
+// 			border-radius 5px
+// 			text-align left
+// 			font-size 0.8em
+// 			padding 10px 5px 5px 15px
+// 			background-color #fff
+// 			//border 1px solid $white
+// 			box-shadow 0px 0px 10px 1px $gray-light//$white
+// 			z-index 101
+
+// 			&:before
+// 				//Posicion:
+// 				position absolute
+// 				//Dimensiones y display:
+// 				content ""
+// 				top -20px
+// 				left 80px
+// 				width 15px
+// 				//Maquillaje
+// 				color $text-color
+// 				border-left 13px solid transparent
+// 				border-top 9px solid transparent
+// 				border-bottom 11px solid #f4f4f4
+// 				border-right 15px solid transparent
+
+// 			a
+// 				display flex
+// 				justify-content flex-start
+// 				align-items center
+// 				color $green
+
+// 				span[class^='icon-']
+// 					margin 0px 5px 0px 0px
+
+// 			p
+// 				font-size 0.7em
+// 				margin -2px 0px 10px 0px
+// 				text-transform none
+// 				letter-spacing 1px
+// 				color $gray-darker
+
+// 	// Logo del order
+// 	.header-order
+// 		position relative
+// 		width @height - 20%
+// 		height @height - 20%
+// 		margin 0px 10px
+// 		border-radius 50%
+// 		background-color $green
+
+// 		.header-order-link
+// 			position absolute
+// 			width 100%
+// 			height @height
+// 			line-height @height
+// 			border-radius 50%
+// 			text-align center
+
+// 			span
+// 				font-size 1.2em
+// 				color #fff
+
+// 		.header-order-units
+// 			position relative
+// 			border-radius 50%
+// 			text-align center
+// 			width 25px
+// 			height @width
+// 			line-height @height
+// 			background-color $green-darker
+// 			font-size 0.7em
+// 			float right
+
+
+// 			//Animacion
+// 			&.add
+// 				animation-name 'addUnitOrder'
+// 				animation-duration 2.5s
+// 				animation-delay 0s
+// 				animation-fill-mode both
+// 				animation-timing-function ease-in
+
+
+// 			span
+// 				color #fff
+
+
+
+
+
+
+// // Aminacion de las unidades del Carrito al añadir un nuevo items
+// @keyframes addUnitOrder
+// 	0%
+// 		left 10%
+// 		opacity 1
+
+// 	3%
+// 		left -10%
+// 		opacity 0
+
+// 	6%
+// 		left 10%
+// 		opacity 1
+
+// 	9%
+// 		left -10%
+// 		opacity 0
+
+// 	12%
+// 		left 10%
+// 		opacity 1
+
+// 	15%
+// 		left 0%
+// 		opacity 1
+
+
+// //Animacion del Menu de Inicio
+// @keyframes animationLogin
+// 	0%
+// 		left 10%
+// 		opacity 1
+
+// 	3%
+// 		left -10%
+
+// 	6%
+// 		left 10%
+
+// 	9%
+// 		left -10%
+
+// 	12%
+// 		left 10%
+
+// 	15%
+// 		left 0%
+
+// 	50%
+// 		opacity 0.2
+
+// 	100%
+// 		opacity 1
+
+

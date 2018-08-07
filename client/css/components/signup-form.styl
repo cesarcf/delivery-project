@@ -1,0 +1,91 @@
+
+div.signup
+	display flex
+	flex-direction column //MAIN AXIS
+	align-items center //CROSS-AXIS
+	height 400px
+	margin-top 65px
+	@media $media-screen-min-tablet
+		justify-content center //MAIN AXIS
+
+
+	h2
+		font-size 1.5em
+		@media $media-screen-min-tablet
+			margin-top 0px
+
+	form
+		position relative //para posicionar los errores de los campos
+		display flex
+		flex-direction column //MAIN AXIS
+		align-items center //CROSS-AXIS
+		width 300px
+
+		div
+			position relative
+			width 100%
+			select
+				margin-bottom 5px
+				text-align-last center
+
+			input
+				text-align center
+				width 100%
+				margin 0px 0px 5px 0px
+				// &.error
+				// 	border 1px solid red
+
+			input[type='checkbox']
+				width auto
+				margin 0px
+				margin 5px
+
+			label
+				span
+					// border 1px solid red
+
+		// div.error
+		// 	font-size 0.7em
+		// 	color $red-darker
+		// 	margin 0px 0px 5px 0px
+
+		div.terminos
+			display flex
+			justify-content center
+			align-items center //CROSS-AXIS
+			margin 5px 0px 10px 0px
+
+			input
+				width auto
+				margin 0px 5px 0px 0px
+			label
+				text-transform none
+				font-size .7em
+
+		button
+			width 100%
+
+	//Por si añado Auth Social
+	// a
+	// 	text-align center
+	// 	font-size 0.7em
+	// 	width 300px
+	// 	margin-bottom 5px
+	// 	padding 3px
+	// 	border 1px solid $gray-light
+	// 	background-color $gray-lighter
+	// 	color $text-color
+
+	// 	&:hover
+	// 		border 1px solid $gray
+	// 		background-color $gray-light
+	// 		color $text-color
+
+	// 	&:last-child
+	// 		margin-bottom 0px
+
+	// 	span
+	// 		position relative
+	// 		top 2px
+
+

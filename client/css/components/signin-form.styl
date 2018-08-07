@@ -1,0 +1,65 @@
+
+div.login
+	display flex
+	flex-direction column //MAIN AXIS
+	align-items center //CROSS-AXIS
+	height 400px
+	margin-top 65px
+	@media $media-screen-min-tablet
+		justify-content center //MAIN AXIS
+
+
+	h2
+		font-size 1.5em
+		@media $media-screen-min-tablet
+			margin-top 0px
+
+	form
+		position relative //para posicionar los errores de los campos
+		display flex
+		flex-direction column //MAIN AXIS
+		align-items center //CROSS-AXIS
+		width 300px
+
+		div
+			position relative
+			width 100%
+
+			input
+				text-align center
+				width 100%
+				margin 0px 0px 5px 0px
+				&.error
+					border 1px solid red
+
+
+		button
+			width 100%
+
+
+	a
+		text-align center
+		font-size 0.7em
+		width 300px
+		margin-bottom 5px
+		padding 3px
+		border 1px solid $gray-light
+		background-color $gray-lighter
+		color $text-color
+
+		&:hover
+			border 1px solid $gray
+			background-color $gray-light
+			color $text-color
+
+		&:last-child
+			margin-bottom 0px
+
+		span
+			position relative
+			top 2px
+
+
+
+
+		//

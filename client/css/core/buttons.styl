@@ -1,0 +1,294 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+//
+// --------------------------------------------------
+////////////////////////////////////////////////////////////////////////
+// Mixins de Btn //////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// --------------------------------------------------
+//
+
+
+// Button Variant
+// -------------------------
+button-variant($color-text, $color-background)
+	@extends .btn
+
+	color $color-text
+	text-shadow none
+	background-color $color-background
+	background-image linear-gradient(to bottom, lighten($color-background, 20%) 5%, $color-background 100%)
+	border-color darken($color-background, 30%)
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.active,
+	.open .dropdown-toggle&
+		color @color
+		background-color @background-color
+
+
+	&:active,
+	&.active,
+	.open .dropdown-toggle&
+		background-image none
+
+
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] &
+		&,
+		&:hover,
+		&:focus,
+		&:active,
+		&.active
+			color rgba(@color, .85)
+			background-color @background-color
+			border-color @border-color
+
+
+// Button sizes
+// -------------------------
+button-size(padding-vertical, padding-horizontal, font-size, line-height, border-radius)
+	padding padding-vertical padding-horizontal
+	font-size font-size
+	line-height line-height
+	border-radius border-radius
+
+// --------------------------------------------------
+
+
+
+
+//
+// --------------------------------------------------
+////////////////////////////////////////////////////////////////////////
+// Estilos de Btn //////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// --------------------------------------------------
+//
+
+
+// Core styles
+.btn
+	display inline-block
+	position relative
+	padding $padding-vertical $padding-horizontal
+	margin-bottom 0 // For input.btn
+	font-size $font-size
+	font-weight normal
+	text-transform uppercase
+	line-height $line-height
+	text-align center
+	vertical-align initial //middle
+	white-space nowrap
+	cursor pointer
+	color $text-color//#555
+	text-shadow 0 1px rgba(255, 255, 255, 0.75)
+	border 1px solid darken(#ccc, 10%)
+	border-bottom-color darken(#ccc, 10%)
+	border-radius $border-radius-xs
+	//Mixin
+	user-select(none)
+
+	background-color #ccc
+	background-image linear-gradient(to bottom, #f3f3f3 0%, #cccccc 100%)
+	//background-image radial-gradient(#fff -72%, #eaf3eb -54%, #bbb 80%, #FFFFFF 180%)
+	background-repeat no-repeat
+	box-shadow 0 1px 0 rgba(255,255,255,.2) inset, 0 1px 2px rgba(0,0,0,.05)
+
+	&:focus
+		outline none
+
+
+	&:hover,
+	&:focus
+		color @color
+		text-decoration none
+		box-shadow none
+		background-position 0 -15px
+		transition background-position 0.1s linear
+
+	&:active,
+	&.active
+		//Box-Model:
+		//top 1px //Hace que se mueva hacia abajo haciendo parecer que lo presiona.
+		outline 0
+
+		color rgba(@color,.85)
+		background-image none
+		background-color #ccc
+		box-shadow 0 2px 4px rgba(0,0,0,.5) inset, 0 1px 2px rgba(0,0,0,.05)
+
+
+	&.disabled,
+	&[disabled],
+	fieldset[disabled] &  // & -> se refiere a .btn  (fieldset[disable] .btn)
+		cursor not-allowed
+		pointer-events none // Future-proof disabling of clicks. prevents all click, state and cursor options on the specified HTML element
+		opacity 0.6
+		//Maquillaje:
+		box-shadow none
+		background-image none
+		background-color #ccc
+		color rgba(0,0,0,.5)
+
+	span[class^='icon-'] + span
+		// display inline-block
+		margin-left 3px
+
+
+//
+// --------------------------------------------------
+////////////////////////////////////////////////////////////////////////
+// Alternate buttons //////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// --------------------------------------------------
+//
+
+
+// - Btn btn-primary - color #7AC143
+// --------------------------------------------------
+.btn-primary
+	button-variant($white, $green-light) //#7AC143
+
+// - Btn btn-warning - color #f99a2e
+// --------------------------------------------------
+.btn-warning
+	button-variant($white, $color-warning) //#f99a2e
+
+// - Btn btn-danger - color #d9534f
+// --------------------------------------------------
+.btn-danger
+	button-variant($white, $color-danger) //#d9534f
+
+// - Btn btn-success - color #5cb85c
+// --------------------------------------------------
+.btn-success
+	button-variant($white, $color-success) //#5cb85c
+
+// - Btn btn-info - color #5bc0de
+// --------------------------------------------------
+.btn-info
+	button-variant($white, $color-info) //#5bc0de
+
+// - Btn orange - #FAA634
+// --------------------------------------------------
+.btn-orange
+	button-variant($white, $orange-light) //#FAA634
+
+
+
+// Link buttons
+// -------------------------
+// Make a button look and behave like a link
+.btn-link
+	color $green;//$link-color
+	font-weight bold
+	cursor pointer
+	border-radius 0
+
+
+	&,
+	&:active,
+	&[disabled],
+	fieldset[disabled] &
+		background-color transparent
+		box-shadow none
+		background-image none
+
+	&,
+	&:hover,
+	&:focus,
+	&:active
+		border-color transparent
+
+
+	&:hover,
+	&:focus
+		outline none
+		color $link-hover-color
+		text-decoration underline
+		background-color transparent
+
+
+	&[disabled],
+	fieldset[disabled] &
+		&:hover,
+		&:focus
+			color $gray-light
+			text-decoration none
+
+
+
+	form &
+		color $green-lighter
+		font-weight 400
+		text-decoration none
+		&:hover,
+		&:focus
+			color $green
+
+		&[disabled]
+			background-color transparent
+			color lighten(@color, 30%)
+			text-decoration none
+
+
+
+//
+// --------------------------------------------------
+////////////////////////////////////////////////////////////////////////
+// Button Sizes y Button Group Sizes //////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// --------------------------------------------------
+//
+
+.btn-lg,
+.btn-group-lg > .btn
+	// line-height: ensure even-numbered height of button next to large input
+	button-size($padding-lg-vertical, $padding-lg-horizontal, $font-size-lg, $line-height-lg, $border-radius-xs)
+
+.btn-md,
+.btn-group-md > .btn
+	// line-height: ensure even-numbered height of button next to large input
+	button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius-xs)
+
+.btn-sm,
+.btn-group-sm > .btn
+	// line-height: ensure proper height of button next to small input
+	button-size($padding-sm-vertical, $padding-sm-horizontal, $font-size-sm, $line-height-sm, $border-radius-xs)
+
+.btn-xs,
+.btn-group-xs > .btn
+	// line-height: ensure proper height of button next to small input
+	button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-xs, $line-height-xs, $border-radius-xs)
+
+
+
+
+// Block button
+// --------------------------------------------------
+
+.btn-block
+	display block
+	width 100%
+	padding-left 0
+	padding-right 0
+
+.btn-block + .btn-block
+	margin-top 5px
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"]
+	&.btn-block
+		width 100%
+
+
+

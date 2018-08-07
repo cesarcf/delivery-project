@@ -1,0 +1,30 @@
+//
+// --------------------------------------------------
+////////////////////////////////////////////////////////////////////////
+// Media Queries Breakpoints ///////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////
+// --------------------------------------------------
+//
+
+// breakpoints
+// --------------------------------------------------
+$screen-tablet =	480px;// Small screen / tablet
+$screen-laptop =	768px;// Medium screen / laptop
+$screen-desktop =	992px;// Large screen / desktop
+$screen-large = 	1200px;
+
+// Variables need to be passed after @media declarations
+// min-width
+minw(w)
+	'(min-width:' + w +')'
+
+// screen and min
+screen-min(w)
+	'screen and ' + minw(w)
+
+
+$media-screen-min-tablet  =	screen-min($screen-tablet)//480px
+$media-screen-min-laptop  =	screen-min($screen-laptop)//768px
+$media-screen-min-desktop =	screen-min($screen-desktop)//992px
+$media-screen-min-large   =	screen-min($screen-large)//1200px
+
