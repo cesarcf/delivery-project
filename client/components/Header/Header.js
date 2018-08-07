@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import socketio from 'socket.io-client'
+import io from 'socket.io-client'
 import logo from './logo.jpg'
 import { compose } from 'redux'
 import { connect } from 'react-redux'
@@ -59,14 +59,16 @@ class Header extends Component {
 		}));
 	}
 
+	componentDidMount(){
+		let orderIO = io.connect()
+		orderIO.on('NEW_STATUS', (data) => {
+			this.props.setStatusToOrder(data.orderId, data.status)
+		})
+	}
+
 
 	render(){
 		const { authenticated, user, setStatusToOrder } = this.props
-
-		let socket = socketio()
-		socket.on('NEW_STATUS', (data) => {
-			setStatusToOrder(data.orderId, data.status)
-		})
 
 		return (
 			<Fragment>

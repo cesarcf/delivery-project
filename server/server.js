@@ -1,10 +1,19 @@
 import http from 'http'
 import express from 'express'
-import socketIO from 'socket.io'
 const app = express()
 const server = http.createServer(app)
+import socketIO from 'socket.io'
 const io = socketIO(server)
-app.io = io//Attach the io instance to your app
+io.on('connection', function(socket){
+	console.log(`Connected to App: ${socket.id}`)
+
+	socket.on('disconnect', function(){
+		console.log(`DISCONNECT to App: ${socket.id}`)
+	})
+
+	app.io = io
+})
+
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
@@ -25,15 +34,6 @@ app.use(methodOverride('X-HTTP-Method-Override', ['POST','DELETE','PUT']))
 
 routes(app)
 
-
-io.on('connection', (socket) => {
-	console.log(`Connected ${socket.id}`)
-
-	socket.on('disconnect', () => {
-		console.log(`Disconnected ${socket.id}`)
-	})
-
-})
 
 
 if(process.env.NODE_ENV === 'production'){

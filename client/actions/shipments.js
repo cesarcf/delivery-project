@@ -43,7 +43,6 @@ export const setRouteDates = (shipment, status) => (dispatch, getState, api) => 
 	api.put(`/shipments/${shipment._id}/?status=${status}`, { headers: { 'X-HTTP-Method-Override': 'PUT' }})
 		.then(res => {
 			dispatch({ type: SET_ROUTE_DATES, payload: res.data })
-			dispatch(setStatusToOrder(shipment.orderId, status))
 		})
 }
 
