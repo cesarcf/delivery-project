@@ -1,4 +1,4 @@
-# Project
+# Project Saloodo
 we need to load the prototype test data before starting.
 
 1. the "server/saloodo-database" folder contains .bson files to be able to load these files
